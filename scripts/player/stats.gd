@@ -6,6 +6,8 @@ extends Node
 var hp : int
 var mana : int
 
+signal died  
+
 func _ready():
 	hp = max_hp
 	mana = max_mana
@@ -23,3 +25,10 @@ func use_mana(cost):
 func take_damage(dmg):
 	hp = clamp(hp - dmg, 0, max_hp)
 	print("HP:", hp)
+
+	if hp <= 0:
+		die()   
+
+func die():
+	print("Player died!")
+	emit_signal("died")
