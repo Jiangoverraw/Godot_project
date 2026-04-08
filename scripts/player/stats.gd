@@ -3,8 +3,12 @@ extends Node
 @export var max_hp := 100
 @export var max_mana := 50
 
-var hp := max_hp
-var mana := max_mana
+var hp : int
+var mana : int
+
+func _ready():
+	hp = max_hp
+	mana = max_mana
 
 func heal(amount):
 	hp = clamp(hp + amount, 0, max_hp)

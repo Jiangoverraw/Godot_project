@@ -6,15 +6,15 @@ extends CharacterBody2D
 # ===== COMPONENTS =====
 @onready var movement = $Movement
 @onready var combat = $Combat
-
+@onready var stats = $Stats
 # ===== PLAYER STATE =====
 var last_direction := "down"
 var is_attacking := false
 var current_anim := ""
 
-# =====================================================
-# READY → kết nối các system với Player
-# =====================================================
+# ======
+# READY 
+# ======
 func _ready():
 	movement.setup(self)
 	combat.setup(self)
@@ -24,7 +24,6 @@ func _ready():
 # =====================================================
 func _physics_process(delta):
 
-	# Nếu đang attack → đứng yên
 	if is_attacking:
 		velocity = Vector2.ZERO
 		move_and_slide()
@@ -42,19 +41,14 @@ func _physics_process(delta):
 
 	move_and_slide()
 
-# =====================================================
+# =====================
 # ANIMATION SAFE PLAYER
-# (GIỮ NGUYÊN từ code gốc của bạn)
-# =====================================================
+# =====================
 func play_anim_safe(anim_name: String):
 	if current_anim != anim_name:
 		current_anim = anim_name
 		anim.play(anim_name)
 
-# =====================================================
-# LƯU HƯỚNG DI CHUYỂN
-# (GIỮ NGUYÊN từ code gốc của bạn)
-# =====================================================
 func update_last_direction(dir: Vector2):
 	if abs(dir.x) > abs(dir.y):
 		last_direction = "right" if dir.x > 0 else "left"

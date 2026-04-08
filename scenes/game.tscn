@@ -1,13 +1,32 @@
 [gd_scene format=3 uid="uid://co50k6gefxjmd"]
 
 [ext_resource type="PackedScene" uid="uid://b8h4tpcpnqdh6" path="res://scenes/player.tscn" id="1_uwrxv"]
+[ext_resource type="PackedScene" uid="uid://d2knm03ku2sxf" path="res://scenes/ui/inventory/inventory_ui.tscn" id="2_yqjtg"]
 
 [node name="Game" type="Node2D" unique_id=1679154379]
 
 [node name="Player" parent="." unique_id=1326159456 instance=ExtResource("1_uwrxv")]
 position = Vector2(235, 197)
-speed = 300.0
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1614829990]
 position = Vector2(235, 197)
 zoom = Vector2(4, 4)
+
+[node name="inventory" parent="." unique_id=192965337 instance=ExtResource("1_uwrxv")]
+
+[node name="Panel" type="Panel" parent="inventory" unique_id=1839152427]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="inventory" unique_id=981750871]
+offset_right = 40.0
+offset_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 5
+
+[node name="InventoryUi" parent="." unique_id=1719424559 instance=ExtResource("2_yqjtg")]
+visible = false
