@@ -17,4 +17,5 @@ visible = false
 [node name="InventorySlot" parent="InventoryUi" instance=ExtResource("3_lbhrr")]
 
 [node name="Tilemap" parent="." instance=ExtResource("3_lnu2h")]
+visible = false
 position = Vector2(-81, -43)
