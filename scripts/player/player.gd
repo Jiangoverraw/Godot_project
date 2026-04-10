@@ -4,9 +4,10 @@ extends CharacterBody2D
 @onready var anim = $AnimatedSprite2D
 
 # ===== COMPONENTS =====
-@onready var movement = $Movement
-@onready var combat = $Combat
-@onready var stats = $Stats
+@onready var movement: Node = $movement
+@onready var combat: Node = $combat
+@onready var stats: Node = $stats
+
 # ===== PLAYER STATE =====
 var last_direction := "down"
 var is_attacking := false

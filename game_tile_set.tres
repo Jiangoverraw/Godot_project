@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" format=3 uid="uid://caqg4v7s6oovq"]
+[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://caqg4v7s6oovq"]
 
 [ext_resource type="Texture2D" uid="uid://csgufij8gxde8" path="res://assets/dungeon asset/Tiled_files/decorative_cracks_floor.png" id="1_jevdp"]
 [ext_resource type="Texture2D" uid="uid://jdh0vs4l3yho" path="res://assets/dungeon asset/Tiled_files/walls_floor.png" id="2_uft10"]

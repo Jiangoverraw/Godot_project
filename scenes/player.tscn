@@ -1,6 +1,7 @@
-[gd_scene format=3 uid="uid://b8h4tpcpnqdh6"]
+[gd_scene load_steps=66 format=3 uid="uid://b8h4tpcpnqdh6"]
 
 [ext_resource type="Texture2D" uid="uid://cmf0j7gafrb84" path="res://assets/The Fantasy Tileset - Animated Character/Main Character/Character_Walk.png" id="1_3vyb7"]
+[ext_resource type="Script" uid="uid://bduyotd6n7h82" path="res://scripts/player/player.gd" id="1_fjrip"]
 [ext_resource type="Texture2D" uid="uid://bxrdvwagwiohw" path="res://assets/The Fantasy Tileset - Animated Character/Main Character/Character_Slash.png" id="2_dqkch"]
 [ext_resource type="Texture2D" uid="uid://gkxl12a2hnml" path="res://assets/The Fantasy Tileset - Animated Character/Main Character/Character_Idle.png" id="3_qlg0r"]
 [ext_resource type="Script" uid="uid://dpqgknvbgg7qh" path="res://scenes/movement.gd" id="4_qlg0r"]
@@ -464,24 +465,31 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fjrip"]
 
-[node name="Player" type="CharacterBody2D" unique_id=1326159456 groups=["player"]]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 position = Vector2(5, -7)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_fjrip")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1790225226]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-4, -10)
 sprite_frames = SubResource("SpriteFrames_tuyoq")
 animation = &"attack_right"
 autoplay = "idle_down"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=754717427]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-3, -6)
 shape = SubResource("CircleShape2D_fjrip")
 
-[node name="movement" type="Node" parent="." unique_id=1623797128]
+[node name="movement" type="Node" parent="."]
 script = ExtResource("4_qlg0r")
 
-[node name="combat" type="Node" parent="." unique_id=1857195233]
+[node name="combat" type="Node" parent="."]
 script = ExtResource("5_tuyoq")
 
-[node name="stats" type="Node" parent="." unique_id=1556486115]
+[node name="stats" type="Node" parent="."]
 script = ExtResource("6_tuyoq")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-8, -5)
+zoom = Vector2(4, 4)
